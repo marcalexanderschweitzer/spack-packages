@@ -5,7 +5,6 @@
 import glob
 import os
 import sys
-import platform
 
 from spack_repo.builtin.build_systems.generic import Package
 
@@ -340,7 +339,7 @@ class Mumps(Package):
             if sys.platform == "darwin":
                 # Building dylibs with mpif90 causes segfaults on 10.8 and
                 # 10.10. Use gfortran. (Homebrew)
-                if major == 10 and (minor == 8 or minor == 10): 
+                if major == 10 and (minor == 8 or minor == 10):
                     makefile_conf.extend(
                         [
                             "LIBEXT=.dylib",
